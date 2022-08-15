@@ -62,24 +62,28 @@ faces = (
     (4, 0, 3, 6)
 )
 
+
 def getTexCoord(basePoint, i):
     if i == 0:
         return basePoint
     if i == 1:
-        return (basePoint[0]+ 1/3,basePoint[1])
+        return (basePoint[0] + 1/3, basePoint[1])
     if i == 2:
         return (basePoint[0] + 1/3, basePoint[1] + 1/2)
     if i == 3:
         return (basePoint[0], basePoint[1] + 1/2)
+
+
 def drawDice():
     glBegin(GL_QUADS)
     i = 0
     for face in faces:
         j = 0
-        basepoint = (remap(i%3,0,3,0,1), remap(math.floor(i/3),0,2,0,1))
+        basepoint = (remap(i % 3, 0, 3, 0, 1),
+                     remap(math.floor(i/3), 0, 2, 0, 1))
         for vertex in face:
-            x,y=getTexCoord(basepoint, j)
-            glTexCoord2f(x,y)
+            x, y = getTexCoord(basepoint, j)
+            glTexCoord2f(x, y)
             glVertex3fv(vertices[vertex])
             j += 1
         i = i+1
@@ -134,23 +138,6 @@ def main():
                 if event.key == pg.K_ESCAPE:
                     pg.quit()
                     quit()
-                if event.key == pg.K_UP:
-                    b = 1 if b != 1 else 0
-                if event.key == pg.K_LEFT:
-                    b = b + 1 if b < 8 else 3
-            if event.type == pg.KEYDOWN:
-                if event.key == pg.K_w:
-                    glTranslatef(0.0, 0.0, clock.get_fps()/100)
-                if event.key == pg.K_s:
-                    glTranslatef(0.0, 0.0, clock.get_fps()/(-100))
-                if event.key == pg.K_a:
-                    glTranslatef(clock.get_fps()/(-100), 0.0, 0.0)
-                if event.key == pg.K_d:
-                    glTranslatef(clock.get_fps()/100, 0.0, 0.0)
-                if event.key == pg.K_q:
-                    glRotatef(clock.get_fps()/100, 1, 0, 0)
-                if event.key == pg.K_e:
-                    glRotatef(clock.get_fps()/(-100), 1, 0, 0)
 
         draw()
         drawFPS()
