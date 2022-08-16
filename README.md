@@ -4,7 +4,7 @@ Lucas Ribeiro de Carvalho
 Installation
 ------
 
-`python3 -m pip install moderngl moderngl-window numpy pygame pysdl2 pyopengl pyopengl-accelerate`
+`git clone *repo link* foldername && cd foldername && python3 -m pip install moderngl moderngl-window numpy pygame pysdl2 pyopengl pyopengl-accelerate`
 
 Running
 ------
