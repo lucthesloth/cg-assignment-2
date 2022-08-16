@@ -16,6 +16,6 @@ Running
 `python3 light.py`
 + OpenGL 3.3 -> Conway's Game of life using compute shaders 
 Rules:
-- Alive: 2,3 Neighbors
-- Revived: 3 Neighbours
+⋅* Alive: 2,3 Neighbors
+⋅* Revived: 3 Neighbours
 `python3 conways.py`
